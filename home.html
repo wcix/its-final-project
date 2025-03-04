@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sneakr.mnl - Home</title>
+  <!-- Bootstrap 4 CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Custom CSS -->
+</head>
+<body>
+
+<div class="menu-nav"> 
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="home.html">
+      <img src="logo.jpg" alt="Sneakr.mnl">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Left Side: Navigation Links and Dropdowns -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="home.html">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-toggle="dropdown">
+            About
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="about.html">About Us</a>
+            <a class="dropdown-item" href="reviews.html">Reviews</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-toggle="dropdown">
+            Shop
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="nike.html">Nike</a>
+            <a class="dropdown-item" href="air.html">Air Jordan</a>
+			<a class="dropdown-item" href="nb.html">New Balance</a>
+			<a class="dropdown-item" href="others.html">Others</a>
+          </div>
+	    <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+        </li>
+      </ul>
+
+      <!-- Search Bar and Icons -->
+      <div class="search-bar">
+        <input type="text" placeholder="Search products...">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="navbar-icons">
+        <a href="#"><i class="fas fa-user"></i></a>
+        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+      </div>
+    </div>
+  </nav>
+</div>
+</div>
+
+  <!-- Jumbotron -->
+  <div class="jumbotron">
+    <h1>Sneakr.mnl</h1>
+    <p>BUY | SELL | TRADE | CONSIGN</p>
+  </div>
+  <br>
+  
+  <!-- Carousel -->
+	<div id="carousel" class="carousel slide" data-ride="carousel">
+	  <ul class="carousel-indicators">
+		<li data-target="#carousel" data-slide-to="0" class="active"></li>
+		<li data-target="#demo" data-slide-to="1"></li>
+		<li data-target="#carousel" data-slide-to="2"></li>
+	  </ul>
+	  <div class="carousel-inner">
+		<div class="carousel-item active">
+		  <img src="carousel1.jpg" class="d-block w-100">
+		</div>
+		<div class="carousel-item">
+		  <img src="carousel2.jpg" class="d-block w-100">
+		</div>
+		<div class="carousel-item">
+		  <img src="carousel3.jpg" class="d-block w-100">
+		</div>
+	  </div>
+	  <a class="carousel-control-prev" href="#carousel" data-slide="prev">
+		<span class="carousel-control-prev-icon"></span>
+	  </a>
+	  <a class="carousel-control-next" href="#carousel" data-slide="next">
+		<span class="carousel-control-next-icon"></span>
+	  </a>
+	</div>
+    <br><br>
+  <!-- Featured Item Section -->
+   <h1 class="text-center mb-4">Featured Items</h1>
+  <div class="featured-items">
+    <!-- Item 1 -->
+	
+    <div class="item-card">
+      <div class="item-image">
+        <img src="featured1.jpg" alt="Nike Air Max">
+      </div>
+      <div class="item-details">
+        <div class="item-name">Nike SB Dunk Low x Futura Laboratories</div>
+        <div class="item-description">
+          This special-edition Dunk Low is a collaboration between design studio Futura Laboratories and Nike's storied skateboarding division. Using a bleached canvas as the backdrop, it features colourful overlays, puff-print details, custom tongue labels and insole art, plus a translucent sole revealing Futura's iconic signature.
+        </div>
+        <div class="item-actions">
+          <a href="nike.html" class="view-button">View</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="item-card">
+      <div class="item-image">
+        <img src="featured2.jpg" alt="Adidas Yeezy">
+      </div>
+      <div class="item-details">
+        <div class="item-name">On Cloudtilt Pearl Ice</div>
+        <div class="item-description">
+          Your lightweight, ultra-cushioned hero. The Cloudtilt is built with CloudTec Phase®, with an ultra-cushioned midsole for smooth, lightweight movement. All-day movement, made better. 
+        </div>
+        <div class="item-actions">
+          <a href="others.html" class="view-button">View</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <!-- Quick Links -->
+        <div class="col-md-3 footer-section">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+			<li><a href="about.html">About Us</a></li>
+			<li><a href="reviews.html">Reviews</a></li>
+            <li><a href="nike.html">Nike</a></li>
+            <li><a href="air.html">Air Jordan</a></li>
+            <li><a href="nb.html">New Balance</a></li>
+			<li><a href="others.html">Other Shoes</a></li>
+			<li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="col-md-3 footer-section">
+          <h5>Contact Us</h5>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> Taft Avenue Barangay Malate, 1004 Manila, Philippines</li>
+            <li><i class="fas fa-phone"></i> +63 977 805 9980</li>
+            <li><i class="fas fa-envelope"></i> info@sneakr.mnl</li>
+          </ul>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="col-md-3 footer-section">
+          <h5>Follow Us</h5>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/sneakr.mnl"><i class="fab fa-facebook-f"></i></a>
+			<a href="http://www.instagram.com/sneakr.mnl"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="col-md-3 footer-section">
+          <h5>Subscribe to Our Newsletter</h5>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <p>&copy; 2023 Balaquiot - Sneakr.mnl. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+   
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
