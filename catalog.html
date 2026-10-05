@@ -50,27 +50,29 @@
   </nav>
 </div>
 
-  <h1>Product Catalog</h1>
-  <hr>
+  <div class="catalog-page">
+    <h1>Product Catalog</h1>
+    <hr>
 
-  <!-- Filter controls -->
-  <div class="catalog-controls">
-    <label for="cat-filter">Filter by brand:</label>
-    <select id="cat-filter">
-      <option value="">All brands</option>
-    </select>
-    <label for="price-sort">Sort by price:</label>
-    <select id="price-sort">
-      <option value="">Default</option>
-      <option value="asc">Low to High</option>
-      <option value="desc">High to Low</option>
-    </select>
-    <span id="catalog-status" class="catalog-status"></span>
-  </div>
+    <!-- Filter controls -->
+    <div class="catalog-controls">
+      <label for="cat-filter">Filter by brand:</label>
+      <select id="cat-filter">
+        <option value="">All brands</option>
+      </select>
+      <label for="price-sort">Sort by price:</label>
+      <select id="price-sort">
+        <option value="">Default</option>
+        <option value="asc">Low to High</option>
+        <option value="desc">High to Low</option>
+      </select>
+      <span id="catalog-status" class="catalog-status"></span>
+    </div>
 
-  <!-- Product grid rendered dynamically from MySQL via /api/products -->
-  <div class="catalog-grid" id="catalog-grid">
-    <p class="text-center w-100">Loading products from the database…</p>
+    <!-- Product list rendered vertically, dynamically from MySQL via /api/products -->
+    <div class="catalog-list" id="catalog-grid">
+      <p class="catalog-empty">Loading products from the database…</p>
+    </div>
   </div>
   <br>
 
