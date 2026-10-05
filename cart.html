@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sneakr.mnl - Shopping Cart</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="menu-nav">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="home.html"><img src="logo.jpg" alt="Sneakr.mnl"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-toggle="dropdown">About</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="about.html">About Us</a>
+            <a class="dropdown-item" href="reviews.html">Reviews</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-toggle="dropdown">Shop</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="nike.html">Nike</a>
+            <a class="dropdown-item" href="air.html">Air Jordan</a>
+            <a class="dropdown-item" href="nb.html">New Balance</a>
+            <a class="dropdown-item" href="others.html">Others</a>
+            <a class="dropdown-item" href="catalog.html">All Products</a>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+      </ul>
+      <div class="search-bar">
+        <input type="text" placeholder="Search products...">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="navbar-icons">
+        <span id="auth-nav-slot"><a href="login.html"><i class="fas fa-user"></i></a></span>
+        <a href="cart.html" style="position:relative;"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+  <h1>Your Shopping Cart</h1>
+  <hr>
+
+  <div class="cart-page-container">
+    <!-- Cart table -->
+    <div class="cart-table-wrap">
+      <table class="table cart-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="cart-rows"><!-- filled by js/cart.js --></tbody>
+        <tfoot>
+          <tr class="cart-total-row">
+            <td colspan="3" class="text-right"><strong>Shipping (Nationwide)</strong></td>
+            <td id="shipping">₱200</td>
+            <td></td>
+          </tr>
+          <tr class="cart-total-row">
+            <td colspan="3" class="text-right"><strong>TOTAL</strong></td>
+            <td id="cart-total"><strong>₱0</strong></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+      <p id="cart-empty" class="text-center">Your cart is empty. <a href="catalog.html">Browse the catalog →</a></p>
+    </div>
+
+    <!-- Checkout panel -->
+    <div class="checkout-panel">
+      <h2><i class="fas fa-receipt"></i> Checkout</h2>
+      <p id="checkout-login-hint">You need to <a href="login.html">log in</a> before placing an order.</p>
+      <form id="checkout-form" style="display:none;" novalidate>
+        <div class="form-group">
+          <label for="ship-name">Full Name</label>
+          <input type="text" id="ship-name" placeholder="Juan Dela Cruz">
+          <small class="field-error" data-for="ship-name"></small>
+        </div>
+        <div class="form-group">
+          <label for="ship-address">Delivery Address</label>
+          <textarea id="ship-address" rows="3" placeholder="House no., Street, Barangay, City"></textarea>
+          <small class="field-error" data-for="ship-address"></small>
+        </div>
+        <div class="form-group">
+          <label for="ship-phone">Phone</label>
+          <input type="text" id="ship-phone" placeholder="+63 917 123 4567">
+          <small class="field-error" data-for="ship-phone"></small>
+        </div>
+        <button type="submit" class="btn btn-danger btn-block" id="place-order-btn">Place Order</button>
+      </form>
+    </div>
+  </div>
+  <br>
+
+  <footer>
+    <div class="container">
+      <div class="text-center mt-4">
+        <p>&copy; 2026 Balaquiot - Sneakr.mnl. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

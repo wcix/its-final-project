@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sneakr.mnl - Admin Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="menu-nav">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="home.html"><img src="logo.jpg" alt="Sneakr.mnl"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-toggle="dropdown">About</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="about.html">About Us</a>
+            <a class="dropdown-item" href="reviews.html">Reviews</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-toggle="dropdown">Shop</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="nike.html">Nike</a>
+            <a class="dropdown-item" href="air.html">Air Jordan</a>
+            <a class="dropdown-item" href="nb.html">New Balance</a>
+            <a class="dropdown-item" href="others.html">Others</a>
+            <a class="dropdown-item" href="catalog.html">All Products</a>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+      </ul>
+      <div class="search-bar">
+        <input type="text" placeholder="Search products...">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="navbar-icons">
+        <span id="auth-nav-slot"><a href="login.html"><i class="fas fa-user"></i></a></span>
+        <a href="cart.html" style="position:relative;"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+  <h1>Admin Dashboard</h1>
+  <hr>
+
+  <!-- Tab navigation -->
+  <ul class="admin-tabs nav">
+    <li class="nav-item"><a class="nav-link active" data-tab="products" href="#">Products</a></li>
+    <li class="nav-item"><a class="nav-link" data-tab="orders" href="#">Orders</a></li>
+    <li class="nav-item"><a class="nav-link" data-tab="reservations" href="#">Reservations</a></li>
+    <li class="nav-item"><a class="nav-link" data-tab="customers" href="#">Customers</a></li>
+  </ul>
+
+  <!-- ==================== PRODUCTS TAB ==================== -->
+  <section id="tab-products" class="admin-section">
+    <div class="dash-card dash-wide">
+      <h2>Manage Products (CRUD)</h2>
+      <button class="btn btn-success mb-3" id="new-product-btn"><i class="fas fa-plus"></i> Add New Product</button>
+
+      <!-- product create/edit form (hidden until Add/Edit clicked) -->
+      <form id="product-form" class="admin-form" style="display:none;" novalidate>
+        <h3 id="product-form-title">Add Product</h3>
+        <input type="hidden" id="pd-id">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="pd-name">Name *</label>
+            <input type="text" id="pd-name"><small class="field-error" data-for="pd-name"></small>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="pd-cat">Category *</label>
+            <select id="pd-cat"></select><small class="field-error" data-for="pd-cat"></small>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="pd-price">Price (₱) *</label>
+            <input type="number" id="pd-price" min="0" step="0.01"><small class="field-error" data-for="pd-price"></small>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="pd-var">Variation</label>
+            <input type="text" id="pd-var">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="pd-sizes">Sizes (US)</label>
+            <input type="text" id="pd-sizes" placeholder="7, 8, 9, 10">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="pd-img">Image file</label>
+            <input type="text" id="pd-img" placeholder="e.g. samba.jpg">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pd-desc">Description</label>
+          <textarea id="pd-desc" rows="2"></textarea>
+        </div>
+        <div class="form-row align-items-center">
+          <div class="form-group col-md-4">
+            <label for="pd-stock">Stock status</label>
+            <select id="pd-stock">
+              <option value="in_stock">In stock</option>
+              <option value="out_of_stock">Out of stock</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label><input type="checkbox" id="pd-featured"> Featured item</label>
+          </div>
+          <div class="form-group col-md-5 text-md-right">
+            <button type="submit" class="btn btn-primary">Save Product</button>
+            <button type="button" class="btn btn-secondary" id="cancel-product-btn">Cancel</button>
+          </div>
+        </div>
+      </form>
+
+      <table class="table admin-table">
+        <thead><tr><th>ID</th><th>Name</th><th>Brand</th><th>Price</th><th>Stock</th><th>Actions</th></tr></thead>
+        <tbody id="products-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ==================== ORDERS TAB ==================== -->
+  <section id="tab-orders" class="admin-section" style="display:none;">
+    <div class="dash-card dash-wide">
+      <h2>All Orders</h2>
+      <table class="table admin-table">
+        <thead><tr><th>#</th><th>Customer</th><th>Date</th><th>Items</th><th>Total</th><th>Status</th><th>Action</th></tr></thead>
+        <tbody id="admin-orders-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================ RESERVATIONS TAB ================== -->
+  <section id="tab-reservations" class="admin-section" style="display:none;">
+    <div class="dash-card dash-wide">
+      <h2>Shoe Reservations</h2>
+      <table class="table admin-table">
+        <thead><tr><th>#</th><th>Name</th><th>Email</th><th>Model</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody id="reservations-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================== CUSTOMERS TAB =================== -->
+  <section id="tab-customers" class="admin-section" style="display:none;">
+    <div class="dash-card dash-wide">
+      <h2>Customers</h2>
+      <table class="table admin-table">
+        <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Role</th><th>Action</th></tr></thead>
+        <tbody id="customers-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+  <footer>
+    <div class="container">
+      <div class="text-center mt-4">
+        <p>&copy; 2026 Balaquiot - Sneakr.mnl. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -46,6 +46,7 @@
             <a class="dropdown-item" href="air.html">Air Jordan</a>
 			<a class="dropdown-item" href="nb.html">New Balance</a>
 			<a class="dropdown-item" href="others.html">Others</a>
+			<a class="dropdown-item" href="catalog.html">All Products</a>
           </div>
 	    <li class="nav-item">
           <a class="nav-link" href="contact.html">Contact Us</a>
@@ -59,8 +60,8 @@
         <button type="submit"><i class="fas fa-search"></i></button>
       </div>
       <div class="navbar-icons">
-        <a href="#"><i class="fas fa-user"></i></a>
-        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        <span id="auth-nav-slot"><a href="login.html"><i class="fas fa-user"></i></a></span>
+        <a href="cart.html" style="position:relative;"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
       </div>
     </div>
   </nav>
@@ -102,21 +103,30 @@
       </div>
     </div>
 
-    <!-- Reservation Form -->
+    <!-- Reservation Form (saves to MySQL via POST /api/reservations) -->
     <div class="reservation-form">
       <h2><strong>Reserve a Shoe</strong></h2>
-      <form>
+      <form id="reservation-form" novalidate>
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          <input type="text" id="name" name="full_name" placeholder="Enter your name">
+          <small class="field-error" data-for="name"></small>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          <input type="email" id="email" name="email" placeholder="Enter your email">
+          <small class="field-error" data-for="email"></small>
         </div>
         <div class="form-group">
           <label for="shoe-model">Shoe Model</label>
-          <input type="text" id="shoe-model" name="shoe-model" placeholder="Enter the shoe model" required>
+          <input type="text" id="shoe-model" name="shoe_model" placeholder="Enter the shoe model" list="model-list">
+          <datalist id="model-list"></datalist>
+          <small class="field-error" data-for="shoe-model"></small>
+        </div>
+        <div class="form-group">
+          <label for="reserve-date">Pick-up Date</label>
+          <input type="date" id="reserve-date" name="reserved_date">
+          <small class="field-error" data-for="reserve-date"></small>
         </div>
         <button type="submit">Reserve Now</button>
       </form>
@@ -175,7 +185,7 @@
         <!-- Newsletter Subscription -->
         <div class="col-md-3 footer-section">
           <h5>Subscribe to Our Newsletter</h5>
-          <form class="newsletter-form">
+          <form class="newsletter-form" novalidate>
             <input type="email" placeholder="Enter your email" required>
             <button type="submit">Subscribe</button>
           </form>
@@ -191,5 +201,7 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
 </body>
 </html>
