@@ -126,6 +126,15 @@ function initNewsletter() {
   });
 }
 
+/* ============ ORDER BUTTONS REDIRECT TO CATALOG ========= */
+function initOrderButtons() {
+  document.querySelectorAll('.order-button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      window.location.href = 'catalog.html';
+    });
+  });
+}
+
 /* ============ ADD-TO-CART BUTTONS ON LISTINGS ============
  * On shop pages (nike/air/nb/others/catalog) we match the
  * static .listing cards to DB products by name+variation and
@@ -167,5 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initSearchBar();
   initNewsletter();
   loadAuthNav();
+  initOrderButtons();
   initListingCartButtons();
 });
