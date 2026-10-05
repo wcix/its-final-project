@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sneakr.mnl - Customer Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="menu-nav">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="home.html"><img src="logo.jpg" alt="Sneakr.mnl"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-toggle="dropdown">About</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="about.html">About Us</a>
+            <a class="dropdown-item" href="reviews.html">Reviews</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-toggle="dropdown">Shop</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="nike.html">Nike</a>
+            <a class="dropdown-item" href="air.html">Air Jordan</a>
+            <a class="dropdown-item" href="nb.html">New Balance</a>
+            <a class="dropdown-item" href="others.html">Others</a>
+            <a class="dropdown-item" href="catalog.html">All Products</a>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+      </ul>
+      <div class="search-bar">
+        <input type="text" placeholder="Search products...">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="navbar-icons">
+        <span id="auth-nav-slot"><a href="login.html"><i class="fas fa-user"></i></a></span>
+        <a href="cart.html" style="position:relative;"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+  <h1>Customer Dashboard</h1>
+  <hr>
+
+  <div class="dash-container">
+    <!-- Profile card: UPDATE customer info -->
+    <div class="dash-card">
+      <h2><i class="fas fa-id-card"></i> My Profile</h2>
+      <form id="profile-form" novalidate>
+        <div class="form-group">
+          <label for="pf-name">Full Name</label>
+          <input type="text" id="pf-name">
+          <small class="field-error" data-for="pf-name"></small>
+        </div>
+        <div class="form-group">
+          <label for="pf-email">Email</label>
+          <input type="email" id="pf-email">
+          <small class="field-error" data-for="pf-email"></small>
+        </div>
+        <div class="form-group">
+          <label for="pf-phone">Phone</label>
+          <input type="text" id="pf-phone" placeholder="+63 917 123 4567">
+          <small class="field-error" data-for="pf-phone"></small>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </form>
+    </div>
+
+    <!-- Orders table: READ / DELETE own orders -->
+    <div class="dash-card dash-wide">
+      <h2><i class="fas fa-box-open"></i> My Orders</h2>
+      <table class="table orders-table">
+        <thead>
+          <tr><th>#</th><th>Date</th><th>Items</th><th>Total</th><th>Status</th><th>Action</th></tr>
+        </thead>
+        <tbody id="orders-body">
+          <tr><td colspan="6" class="text-center">Loading…</td></tr>
+        </tbody>
+      </table>
+      <p id="no-orders" style="display:none;">You have no orders yet. <a href="catalog.html">Start shopping →</a></p>
+    </div>
+  </div>
+  <br>
+
+  <footer>
+    <div class="container">
+      <div class="text-center mt-4">
+        <p>&copy; 2026 Balaquiot - Sneakr.mnl. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
