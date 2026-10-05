@@ -792,18 +792,43 @@ footer a:hover {
 .auth-card label { font-weight: 600; margin-bottom: 0; }
 .auth-card .form-group { margin-bottom: 14px; }
 
-/* ---- catalog page ---- */
+/* ---- catalog page (vertical product list) ---- */
+.catalog-page { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+.catalog-page h1 { text-align: center; margin-top: 30px; }
+.catalog-page hr { border: 0; border-top: 3px solid #111; margin-bottom: 24px; }
 .catalog-controls {
   display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-  padding: 12px 20px; background: #f5f5f5; border-radius: 8px; margin: 0 20px 20px;
+  padding: 12px 20px; background: #f5f5f5; border-radius: 8px; margin-bottom: 24px;
 }
 .catalog-controls select { padding: 6px 10px; border: 2px solid #111; border-radius: 6px; background: #fff; }
 .catalog-status { margin-left: auto; color: #666; font-weight: 600; }
-.catalog-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px; padding: 0 20px;
+
+/* single-column vertical stack of full-width product rows */
+.catalog-list {
+  display: flex; flex-direction: column; gap: 20px;
 }
-.catalog-card { margin: 0; }
+.catalog-list .catalog-card {
+  display: flex; flex-direction: row; align-items: center; gap: 20px;
+  max-width: 100%; width: 100%; margin: 0;
+  border: 1px solid #ddd; border-radius: 8px; padding: 20px;
+  background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+.catalog-list .catalog-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  background-color: black;
+  color: white !important;
+}
+.catalog-list .listing-image { flex: 0 0 170px; margin-right: 0; }
+.catalog-list .listing-details { flex: 1; }
+.catalog-empty { text-align: center; color: #666; font-weight: 600; padding: 30px 0; }
+
+@media (max-width: 600px) {
+  .catalog-list .catalog-card { flex-direction: column; align-items: stretch; text-align: center; }
+  .catalog-list .listing-image { flex: none; width: 100%; max-width: 260px; margin: 0 auto; }
+  .catalog-list .listing-actions { text-align: center; }
+}
 
 /* ---- cart page ---- */
 .cart-page-container { display: flex; gap: 24px; flex-wrap: wrap; padding: 0 20px; align-items: flex-start; }

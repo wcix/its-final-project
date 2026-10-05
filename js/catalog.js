@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch { /* ignore */ }
 
   async function render() {
-    grid.innerHTML = '<p class="text-center w-100">Loading…</p>';
+    grid.innerHTML = '<p class="catalog-empty">Loading…</p>';
     let url = '/api/products?';
     if (catSel.value) url += 'category=' + encodeURIComponent(catSel.value) + '&';
     if (initialSearch) url += 'search=' + encodeURIComponent(initialSearch) + '&';
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
       products = await (await fetch(url)).json();
     } catch {
-      grid.innerHTML = '<p class="text-center w-100">Could not reach the server. Run <code>node server.js</code>.</p>';
+      grid.innerHTML = '<p class="catalog-empty">Could not reach the server. Run <code>node server.js</code>.</p>';
       return;
     }
     if (sortSel.value === 'asc') products.sort((a, b) => a.price - b.price);
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     status.textContent = `${products.length} product(s)` + (initialSearch ? ` matching “${initialSearch}”` : '');
 
     if (!products.length) {
-      grid.innerHTML = '<p class="text-center w-100">No products found.</p>';
+      grid.innerHTML = '<p class="catalog-empty">No products found.</p>';
       return;
     }
 
